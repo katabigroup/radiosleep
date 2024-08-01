@@ -32,7 +32,7 @@ def plot_confusion_matrix(cm_stack, classes, fig_name, cmap=plt.cm.Blues, fontsi
     plt.gcf().set_size_inches(6, 5)
 
     plt.tight_layout(pad = 0.3)
-    plt.savefig("visualizations/%s.png"%(fig_name), dpi = 300)
+    plt.savefig("figures/%s.png"%(fig_name), dpi = 300)
     plt.close()
 
 # load the csv file

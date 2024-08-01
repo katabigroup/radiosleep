@@ -66,7 +66,7 @@ ax_boxplot.tick_params('x', labelsize=15)
 
 # save the boxplot for fig_boxplot
 fig_boxplot.tight_layout(pad=1)
-fig_boxplot.savefig(os.path.join("visualizations", "fig3b.png"))
+fig_boxplot.savefig(os.path.join("figures", "fig3b.png"))
 
 plt.tight_layout(pad = 0.1)
 plt.close()

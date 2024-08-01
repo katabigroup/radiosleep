@@ -67,7 +67,7 @@ def plot_scatter(gt_tsts, pred_tsts, xlabel, ylabel, title, xlim, ylim, xy_text,
     sns.despine()
 
     # save the figure
-    plt.savefig(os.path.join(f"visualizations/fig2e", title + ".png"), dpi=300,
+    plt.savefig(os.path.join(f"figures/fig2e", title + ".png"), dpi=300,
                 bbox_inches="tight")
     plt.close()
 

@@ -67,5 +67,5 @@ for i in range(num_channels):
 
 plt.tight_layout()
 
-fig.savefig("visualizations/fig2b.png")
+fig.savefig("figures/fig2b.png")
 plt.close()
