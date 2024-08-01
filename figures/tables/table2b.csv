@@ -1,0 +1,11 @@
+dataset,demo,num_samples,4-class_acc
+mgh,All,849,80.4 +-8.2
+mgh,Male,480,80.4 +-7.8
+mgh,Female,363,80.2 +-8.6
+mgh,Young,202,81.5 +-8.7
+mgh,Middle,287,81.0 +-8.2
+mgh,Old,360,79.2 +-7.7
+mgh,Asian,35,78.6 +-7.9
+mgh,Black,64,79.0 +-8.3
+mgh,White,639,80.6 +-8.1
+mgh,Others,111,80.1 +-8.3

@@ -1,0 +1,19 @@
+dataset,ch,four_class_acc
+mgh,rf,80.4 ± 8.2
+mgh,abdominal,81.0 ± 8.0
+mgh,thorax,81.2 ± 7.9
+umass,rf,84.1 ± 4.2
+umass,abdominal,84.1 ± 4.5
+umass,thorax,84.0 ± 4.7
+shhs1,abdominal,78.8 ± 9.5
+shhs1,thorax,79.8 ± 9.3
+shhs2,abdominal,83.1 ± 6.3
+shhs2,thorax,84.4 ± 5.6
+wsc,abdominal,83.4 ± 6.8
+wsc,thorax,84.4 ± 6.3
+mesa,abdominal,79.9 ± 10.1
+mesa,thorax,80.0 ± 10.1
+mros1,abdominal,84.1 ± 7.1
+mros1,thorax,84.5 ± 6.6
+mros2,abdominal,83.3 ± 6.9
+mros2,thorax,83.1 ± 6.8
