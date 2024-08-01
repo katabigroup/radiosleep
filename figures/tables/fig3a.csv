@@ -1,0 +1,9 @@
+dataset,channel,icc,r
+mgh_full_new,rf,0.898 ([0.88 0.91]),0.816
+mgh_full_new,abdominal,0.903 ([0.89 0.92]),0.829
+shhs1_new,abdominal,0.927 ([0.92 0.93]),0.869
+shhs2_new,abdominal,0.946 ([0.94 0.95]),0.903
+wsc_new,abdominal,0.902 ([0.89 0.91]),0.829
+mesa_new,abdominal,0.921 ([0.91 0.93]),0.855
+mros1_new,abdominal,0.935 ([0.93 0.94]),0.893
+mros2_new,abdominal,0.918 ([0.91 0.93]),0.865

@@ -67,5 +67,5 @@ for i in range(num_channels):
 
 plt.tight_layout()
 
-fig.savefig("visualizations/icc_across_channels.png")
+fig.savefig("visualizations/fig2b.png")
 plt.close()

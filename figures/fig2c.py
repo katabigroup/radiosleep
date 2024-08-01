@@ -58,9 +58,9 @@ five_class_recs = np.stack(five_class_recs)
 four_class_recs = np.stack(four_class_recs)
 
 five_classes_name = ["Wake", "N1", "N2", "N3/Deep", "REM"]
-fig_name = "mgh_rf_five_class_recs_cm"
+fig_name = "fig2c_five_class_recs_cm"
 plot_confusion_matrix(five_class_recs, five_classes_name, fig_name, cmap = "Blues", fontsize = 15)
 
 four_classes_name = ["Wake", "Light", "Deep", "REM"]
-fig_name = "mgh_rf_four_class_recs_cm"
+fig_name = "fig2c_four_class_recs_cm"
 plot_confusion_matrix(four_class_recs, four_classes_name, fig_name, cmap = "Blues", fontsize = 18)
