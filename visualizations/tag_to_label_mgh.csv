@@ -1,0 +1,57 @@
+tag,label
+dx_elix_para,Paralysis
+dx_cci_hp,Hemiplegia or Paraplegia
+dx_cci_msld,moderate or severe liver disease
+dx_elix_aids,AIDS/HIV
+dx_cci_aids,AIDS/HIV
+dx_elix_psycho,Psychoses
+dx_elix_lymph,lymphoma
+dx_elix_pud,peptic ulcer disease
+dx_elix_metacanc,metastatic cancer
+dx_cci_metacanc,metastatic solid tumor
+dx_cci_dementia,Dementia
+dx_cci_pud,peptic ulcer disease
+dx_cci_mi,Myocardial Infarction
+dx_cci_rheumd,rheumatoid disease
+dx_elix_blane,blood loss anemia
+dx_elix_coag,coagulopathy
+dx_elix_hypc,"hypertension, complicated"
+dx_elix_drug,drug abuse
+dx_elix_alcohol,alcohol abuse
+dx_elix_pcd,Pulmonary Circulation Disorder
+dx_elix_rheumd,rheumatoid arthritis/collaged vascular disease
+dx_elix_valv,Valvular Disease
+dx_elix_wloss,weight loss
+dx_elix_dane,deficiency anemias
+dx_cci_diabwc,diabetes with complications
+dx_elix_pvd,periheral vascular disease
+dx_cci_rend,renal disease
+dx_cci_pvd,peripheral vascular disease
+dx_cci_chf,Congestive Heart Failure (same as dx_elix_chf)
+dx_elix_rf,renal failure
+dx_elix_chf,Congestive Heart Failure
+dx_cci_cevd,Cerebrovascular
+dx_elix_fed,fluid and electrolyte disorders
+dx_elix_solidtum,"solid tumor, without metastasis"
+dx_elix_diabc,"diabetes, complicated"
+dx_cci_mld,mild liver disease
+dx_elix_ld,liver disease
+dx_cci_canc,cancer
+dx_elix_hypothy,hypothyroidism
+dx_elix_diabunc,"diabetes, uncomplicated"
+dx_elix_ond,Other Disorders
+dx_cci_diab,diabetes without complications
+dx_elix_diab,Diabetes
+dx_elix_cpd,Chronic Pulmonary Disease
+dx_cci_cpd,Chronic Pulmonary Disease (same as dx_elix_chf)
+dx_elix_carit,Cardiac Arrhythmias
+dx_elix_depre,Depression
+dx_elix_obes,obesity
+dx_elix_hypunc,"hypertension, uncomplicated"
+dx_elix_hyp,Hypertension
+dx_merge_pvd,Periheral Vascular Disease
+dx_merge_rheumd,Rheumatoid Arthritis
+dx_merge_aids,AIDS/HIV
+dx_merge_diabete,Diabetes
+dx_merge_cancer,Cancer
+dx_merge_paralysis,Paralysis
