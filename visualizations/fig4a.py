@@ -7,8 +7,11 @@ import seaborn as sns
 from sklearn.metrics import accuracy_score
 from tqdm import tqdm
 
-ds_list = ["mgh", "shhs", "wsc", "mros"]
-ch_list = ["rf", "thorax", "thorax", "thorax"]
+# ds_list = ["mgh", "shhs", "wsc", "mros"]
+# ch_list = ["rf", "thorax", "thorax", "thorax"]
+
+ds_list = ["shhs1"]
+ch_list = ["thorax"]
 
 ds_ch_list = zip(ds_list, ch_list)
 
@@ -28,16 +31,28 @@ for ds, ch in ds_ch_list:
     # load the csv, where the row/index name is "uid"
     if ds == "mgh":
         visits = [1]
-        metrics_csv_path = os.path.join(results_dir, "%s_%s.csv"%(ds, ch))
+        metrics_csv_path_root = os.path.join(results_dir, "%s_%s.csv"%(ds, ch))
     elif ds == "wsc":
         visits = [1]
-        metrics_csv_path = os.path.join(results_dir, "%s_%s.csv"%(ds, ch))
+        metrics_csv_path_root = os.path.join(results_dir, "%s_%s.csv"%(ds, ch))
     elif ds == "shhs":
         visits = [1, 2]
-        metrics_csv_path = os.path.join(results_dir, "shhs{0}_%s.csv"%(ch))
+        metrics_csv_path_root = os.path.join(results_dir, "shhs{0}_%s.csv"%(ch))
+    elif ds == "shhs1":
+        visits = [1]
+        metrics_csv_path_root = os.path.join(results_dir, "shhs1_%s.csv"%(ch))
+    elif ds == "shhs2":
+        visits = [2]
+        metrics_csv_path_root = os.path.join(results_dir, "shhs2_%s.csv"%(ch))
     elif ds == "mros":
         visits = [1, 2]
-        metrics_csv_path = os.path.join(results_dir, "mros{0}_%s.csv"%(ch))
+        metrics_csv_path_root = os.path.join(results_dir, "mros{0}_%s.csv"%(ch))
+    elif ds == "mros1":
+        visits = [1]
+        metrics_csv_path_root = os.path.join(results_dir, "mros1_%s.csv"%(ch))
+    elif ds == "mros2":
+        visits = [2]
+        metrics_csv_path_root = os.path.join(results_dir, "mros2_%s.csv"%(ch))
     else:
         assert False
 
@@ -49,11 +64,9 @@ for ds, ch in ds_ch_list:
 
     for visit in visits:
         if len(visits) > 1:
-            metrics_csv_path = metrics_csv_path.format(visit)
-            ds_with_visit = ds + str(visit)
+            metrics_csv_path = metrics_csv_path_root.format(visit)
         else:
-            metrics_csv_path = metrics_csv_path
-            ds_with_visit = ds
+            metrics_csv_path = metrics_csv_path_root
 
         metrics_csv = pd.read_csv(metrics_csv_path)
         metrics_csv_list.append(metrics_csv)
