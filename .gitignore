@@ -1,2 +1,4 @@
 results/respiratory_events
 results/sleep_stages
+.DS_Store
+.idea

@@ -15,12 +15,11 @@ ds_ch_list = zip(ds_list, ch_list)
 dx_cats = ["all", "cardiovascular", "respiratory", "immune", "neurological"]
 dx_labels = ["Whole Dataset", "Cardiovascular", "Respiratory", "Immune", "Neurological"]
 
-dx_cats_color = {}
-dx_cats_color["all"] = sns.color_palette("Grays", 10)[3]
-dx_cats_color["cardiovascular"] = sns.color_palette("Blues", 10)[4]
-dx_cats_color["respiratory"] = sns.color_palette("Greens", 10)[4]
-dx_cats_color["immune"] = sns.color_palette("Purples", 10)[4]
-dx_cats_color["neurological"] = sns.color_palette("Oranges", 10)[4]
+dx_cats_color = {"all": sns.color_palette("Grays", 10)[3],
+                 "cardiovascular": sns.color_palette("Blues", 10)[4],
+                 "respiratory": sns.color_palette("Greens", 10)[4],
+                 "immune": sns.color_palette("Purples", 10)[4],
+                 "neurological": sns.color_palette("Oranges", 10)[4]}
 
 results_dir = "../results/sleep_stages"
 
