@@ -26,6 +26,8 @@ dx_cats_color = {"all": sns.color_palette("Grays", 10)[3],
 
 results_dir = "../results/sleep_stages"
 
+FONT_SIZE = 30
+
 for ds, ch in ds_ch_list:
 
     # load the csv, where the row/index name is "uid"
@@ -97,7 +99,8 @@ for ds, ch in ds_ch_list:
 
         # ignore if mean acc is nan
         if not np.isnan(mean_acc):
-            ax.text(i, 87, "%.1f \n (n = %d)" % (mean_acc, num_samples), ha="center", va="bottom", fontsize=18)
+            # ax.text(i, 87, "%.1f \n (n = %d)" % (mean_acc, num_samples), ha="center", va="bottom", fontsize=18)
+            ax.text(i, 87, "%.1f" % (mean_acc), ha="center", va="bottom", fontsize=FONT_SIZE)
 
     x_pos = np.arange(len(dx_cats))
 
@@ -107,9 +110,9 @@ for ds, ch in ds_ch_list:
     ax.set_ylim(bottom=60, top=90)
 
     # increase the font size of the x and y ticks
-    plt.xticks(fontsize=18, rotation=45)
-    plt.yticks(fontsize=18)
-    ax.yaxis.label.set_size(18)
+    plt.xticks(fontsize=FONT_SIZE, rotation=60)
+    plt.yticks(fontsize=FONT_SIZE)
+    ax.yaxis.label.set_size(FONT_SIZE)
 
     # remove all spines
     ax.spines['right'].set_visible(False)

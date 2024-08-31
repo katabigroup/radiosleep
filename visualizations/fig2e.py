@@ -6,6 +6,7 @@ from scipy import stats
 import seaborn as sns
 import pandas as pd
 
+
 # function to plot the scatter plot with the 95% confidence interval and the diagonal line
 def plot_scatter(gt_tsts, pred_tsts, xlabel, ylabel, title, xlim, ylim, xy_text, tick_interval):
     fig, ax = plt.subplots(figsize=(6, 6))
@@ -70,6 +71,7 @@ def plot_scatter(gt_tsts, pred_tsts, xlabel, ylabel, title, xlim, ylim, xy_text,
     plt.savefig(os.path.join(f"figures/fig2e", title + ".png"), dpi=300,
                 bbox_inches="tight")
     plt.close()
+
 
 sleep_metrics_dir = '../results/sleep_stages/mgh_rf.csv'
 sleep_metrics = pd.read_csv(sleep_metrics_dir)
