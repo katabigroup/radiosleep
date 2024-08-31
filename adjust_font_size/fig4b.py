@@ -61,6 +61,23 @@ ds_tags_of_interests = {
     },
 }
 
+short_name_mapping = {
+    "myocardial infarction": "MI",
+    "hypertension": "HTN",
+    "valvular disease": "VD",
+    "congestive heart failure": "CHF",
+    "cardiac arrhythmias": "CA",
+    "peripheral vascular disease": "PVD",
+    "chronic pulmonary disease": "CPD",
+    "pulmonary circulation disorder": "PCD",
+    "rheumatoid arthritis": "RA",
+    "diabetes": "DIAB",
+    "cancer": "CANC",
+    "cerebrovascular disease": "CVD",
+    "dementia": "DEM",
+    "other neurological disorders": "OND",
+}
+
 all_data = []
 all_color = []
 all_text = []
@@ -99,7 +116,8 @@ for dx_type, dx_tags in ds_tags_of_interests[ds].items():
     for i, acc in enumerate(data):
         num_samples = len(acc)
         mean_acc = np.mean(acc)
-        text.append("%.1f \n (n = %d)" % (mean_acc, num_samples))
+        # text.append("%.1f \n (n = %d)" % (mean_acc, num_samples))
+        text.append("%.1f" % (mean_acc))
 
     # assign dx_tags_color with the tab10 colormap
     dx_tags_color = {}
@@ -123,7 +141,8 @@ for dx_type, dx_tags in ds_tags_of_interests[ds].items():
 
     colors = [dx_tags_color[dx_tag] for dx_tag in dx_tags]  # [::-1]
 
-    dx_labels = dx_tags
+    # dx_labels = dx_tags
+    dx_labels = [short_name_mapping[tag] for tag in dx_tags]
 
     if dx_type != 'Cardiovascular':
         all_data += [np.array([0])]
@@ -144,11 +163,11 @@ print(all_data)
 for data in all_data:
     print(np.mean(data), '+-', np.std(data))
 
-fontsize = 15
+fontsize = 30
 
 # label the mean accuracy at the top of the bar, with the total number of samples
 for i, text in enumerate(all_text):
-    ax.text(i, 87, text, ha="center", va="bottom", fontsize=fontsize)
+    ax.text(i, 83, text, ha="center", va="bottom", fontsize=fontsize)
 
 # def func(x):
 #     if len(x) < 30:
@@ -159,9 +178,10 @@ for i, text in enumerate(all_text):
 #         return ''.join([" "] * l) + x + ''.join([" "] * r)
 #     return x
 # all_xlabels = [func(x) for x in all_xlabels]
-ax.set_xticks(np.arange(len(all_xlabels)), all_xlabels, rotation=45)
+ax.set_xticks(np.arange(len(all_xlabels)), all_xlabels, rotation=0)
 # ax.set_ylabel("Sleep Stage Accuracy (%)")
-ax.set_ylim(bottom=60, top=90)
+ax.set_ylim(bottom=60, top=85)
+ax.set_yticks(np.arange(60, 86, 5))
 
 # add title as the ds
 # ax.set_title(dx_type, fontsize=15)
@@ -184,5 +204,6 @@ plt.subplots_adjust(top=0.95, bottom=0.15, left=0.15, right=0.95, hspace=0.2, ws
 # ax.spines['bottom'].set_position(('data', 0))
 plt.tight_layout(pad=0)
 
+os.system("mkdir -p figures/fig4b")
 plt.savefig("figures/fig4b/%s_%s.png" % (ds, ch), dpi=300)
 plt.close()

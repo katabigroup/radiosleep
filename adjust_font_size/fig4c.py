@@ -39,7 +39,7 @@ def plot_rows(plot_df, p_values_df_for_metric, yname, title_name, plot_name, viz
         include_medication = False
 
     if include_medication:
-        fig, ax = plt.subplots(1, 1, figsize=(3, 4), sharey=True)
+        fig, ax = plt.subplots(1, 1, figsize=(3, 5), sharey=True)
 
         # sns.boxplot(x = "On Medication", y = yname, data = plot_df, showfliers = False, palette = [palette[6], palette[1], palette[2]], ax = ax, showcaps = False, width = bar_width)
 
@@ -75,10 +75,15 @@ def plot_rows(plot_df, p_values_df_for_metric, yname, title_name, plot_name, viz
         n_control = p_values_df_for_metric['Num Control'].iloc[0]
         n_meds = p_values_df_for_metric['Num On Meds'].iloc[0]
         n_no_meds = p_values_df_for_metric['Num No Meds'].iloc[0]
+        # ax.set_xticklabels([
+        #     f"Control\n(n={n_control})",
+        #     f"Meds\n(n={n_meds})",
+        #     f"No Meds\n(n={n_no_meds})"]
+        # )
         ax.set_xticklabels([
-            f"Control\n(n={n_control})",
-            f"Meds\n(n={n_meds})",
-            f"No Meds\n(n={n_no_meds})"]
+            f"Control",
+            f"Meds",
+            f"No Meds"],rotation=40,
         )
 
         # add statistical significance
@@ -101,7 +106,7 @@ def plot_rows(plot_df, p_values_df_for_metric, yname, title_name, plot_name, viz
 
 
     else:
-        fig, ax = plt.subplots(1, 1, figsize=(2.5, 4), sharey=True)
+        fig, ax = plt.subplots(1, 1, figsize=(2.5, 5), sharey=True)
         # sns.boxplot(x = "On Medication", y = yname, data = plot_df, showfliers = False, palette = [palette[5], palette[1]], ax = ax, showcaps = False, width = bar_width)
 
         bp = plt.boxplot([plot_df[plot_df["On Medication"] == "Control"][yname].values,
@@ -118,10 +123,14 @@ def plot_rows(plot_df, p_values_df_for_metric, yname, title_name, plot_name, viz
         if title_name == 'rheumatoid_arthritis':
             display_name = 'RA'
 
+        # ax.set_xticklabels([
+        #     f"Control\n(n={n_control})",
+        #     f"{display_name}\n(n={n_dx})",
+        # ])
         ax.set_xticklabels([
-            f"Control\n(n={n_control})",
-            f"{display_name}\n(n={n_dx})",
-        ])
+            f"Control",
+            f"{display_name}",
+        ],rotation=40)
 
         if False:
             for median in bp['medians']:
@@ -159,9 +168,10 @@ def plot_rows(plot_df, p_values_df_for_metric, yname, title_name, plot_name, viz
         # Drawing lines and annotations
         draw_significance_line(1, 2, y_line, y_sep, pval_to_stars(p_value_12), ax)
 
+    # font_size = 10
     # set the y tick labels to be 6
-    ax.tick_params(axis="y", labelsize=12)
-    ax.tick_params(axis="x", labelsize=12)
+    ax.tick_params(axis="y", labelsize=20)
+    ax.tick_params(axis="x", labelsize=20)
 
     # set the size of the y axis label to 12
     # ax.set_ylabel(yname, fontsize = 12)

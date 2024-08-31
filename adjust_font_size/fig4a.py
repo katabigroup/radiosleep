@@ -7,18 +7,18 @@ import seaborn as sns
 from sklearn.metrics import accuracy_score
 from tqdm import tqdm
 
-# ds_list = ["mgh", "shhs", "wsc", "mros"]
-# ch_list = ["rf", "thorax", "thorax", "thorax"]
+ds_list = ["mgh", "shhs", "wsc", "mros"]
+ch_list = ["rf", "thorax", "thorax", "thorax"]
 
-ds_list = ["shhs1"]
-ch_list = ["thorax"]
+# ds_list = ["shhs1"]
+# ch_list = ["thorax"]
 
 ds_ch_list = zip(ds_list, ch_list)
 
 dx_cats = ["all", "cardiovascular", "respiratory", "immune", "neurological"]
 dx_labels = ["Whole Dataset", "Cardiovascular", "Respiratory", "Immune", "Neurological"]
 
-dx_cats_color = {"all": sns.color_palette("Grays", 10)[3],
+dx_cats_color = {"all": sns.color_palette("Greys", 10)[3],
                  "cardiovascular": sns.color_palette("Blues", 10)[4],
                  "respiratory": sns.color_palette("Greens", 10)[4],
                  "immune": sns.color_palette("Purples", 10)[4],
@@ -100,7 +100,7 @@ for ds, ch in ds_ch_list:
         # ignore if mean acc is nan
         if not np.isnan(mean_acc):
             # ax.text(i, 87, "%.1f \n (n = %d)" % (mean_acc, num_samples), ha="center", va="bottom", fontsize=18)
-            ax.text(i, 87, "%.1f" % (mean_acc), ha="center", va="bottom", fontsize=FONT_SIZE)
+            ax.text(i, 86, "%.1f" % (mean_acc), ha="center", va="bottom", fontsize=FONT_SIZE)
 
     x_pos = np.arange(len(dx_cats))
 
@@ -109,9 +109,13 @@ for ds, ch in ds_ch_list:
     ax.set_ylabel("Sleep Stage Accuracy (%)")
     ax.set_ylim(bottom=60, top=90)
 
+    # let yticks to be every 10
+    ax.set_yticks(np.arange(65, 86, 5))
+
     # increase the font size of the x and y ticks
-    plt.xticks(fontsize=FONT_SIZE, rotation=60)
-    plt.yticks(fontsize=FONT_SIZE)
+    ax.xaxis.set_tick_params(labelsize=FONT_SIZE, rotation=40)
+    ax.yaxis.set_tick_params(labelsize=FONT_SIZE)
+    ax.xaxis.label.set_size(FONT_SIZE)
     ax.yaxis.label.set_size(FONT_SIZE)
 
     # remove all spines
@@ -123,5 +127,6 @@ for ds, ch in ds_ch_list:
 
     plt.tight_layout(pad=0)
 
+    os.system("mkdir -p figures/fig4a")
     plt.savefig("figures/fig4a/%s_%s.png" % (ds, ch), dpi=300)
     plt.close()
