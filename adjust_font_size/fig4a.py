@@ -16,7 +16,8 @@ ch_list = ["rf", "thorax", "thorax", "thorax"]
 ds_ch_list = zip(ds_list, ch_list)
 
 dx_cats = ["all", "cardiovascular", "respiratory", "immune", "neurological"]
-dx_labels = ["Whole Dataset", "Cardiovascular", "Respiratory", "Immune", "Neurological"]
+# dx_labels = ["Whole Dataset", "Cardiovascular", "Respiratory", "Immune", "Neurological"]
+dx_labels = ["All", "Cardio", "Resp", "Immune", "Neural"]
 
 dx_cats_color = {"all": sns.color_palette("Greys", 10)[3],
                  "cardiovascular": sns.color_palette("Blues", 10)[4],
@@ -84,7 +85,7 @@ for ds, ch in ds_ch_list:
             dx_acc_dict[dx_cat] = []
 
     # now barplot with errorbar
-    fig, ax = plt.subplots(figsize=(8, 8))
+    fig, ax = plt.subplots(figsize=(6, 5.5))
 
     data = list([dx_acc_dict[dx_cat] for dx_cat in dx_cats])
 
@@ -100,20 +101,20 @@ for ds, ch in ds_ch_list:
         # ignore if mean acc is nan
         if not np.isnan(mean_acc):
             # ax.text(i, 87, "%.1f \n (n = %d)" % (mean_acc, num_samples), ha="center", va="bottom", fontsize=18)
-            ax.text(i, 86, "%.1f" % (mean_acc), ha="center", va="bottom", fontsize=FONT_SIZE)
+            ax.text(i, 86, "%.0f" % (mean_acc), ha="center", va="bottom", fontsize=FONT_SIZE)
 
     x_pos = np.arange(len(dx_cats))
 
     ax.set_xticks(x_pos)
     ax.set_xticklabels(dx_labels, rotation=0)
-    ax.set_ylabel("Sleep Stage Accuracy (%)")
+    ax.set_ylabel("Accuracy (%)")
     ax.set_ylim(bottom=60, top=90)
 
     # let yticks to be every 10
     ax.set_yticks(np.arange(65, 86, 5))
 
     # increase the font size of the x and y ticks
-    ax.xaxis.set_tick_params(labelsize=FONT_SIZE, rotation=40)
+    ax.xaxis.set_tick_params(labelsize=FONT_SIZE, rotation=45)
     ax.yaxis.set_tick_params(labelsize=FONT_SIZE)
     ax.xaxis.label.set_size(FONT_SIZE)
     ax.yaxis.label.set_size(FONT_SIZE)
